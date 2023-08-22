@@ -9,12 +9,13 @@ const CharacterCard = ({ character, characterListLength }) => {
   const [filmData, setFilmData] = useState([]);
 
   async function getFilmList(filmUrlList) {
-    
     const filmListName = await Promise.all(
       filmUrlList?.map(async (filmUrl) => {
-        const response = await fetch(filmUrl,{ method: "GET",
+        const response = await fetch(filmUrl, {
+          method: "GET",
 
-          headers: { accept: "application/json" }, });
+          headers: { accept: "application/json" },
+        });
         const filmNameJSON = await response?.json();
         return filmNameJSON?.title;
       })
@@ -37,14 +38,15 @@ const CharacterCard = ({ character, characterListLength }) => {
 
   return (
     <div className="character-card">
-      {characterListLength > 3 && (
-        <button onClick={handleRemove}>
-          <GrFormClose />
-        </button>
-      )}
-
       <div className="character-header">
         <h2 className="character-name">{character.name}</h2>
+        <div>
+          {characterListLength > 3 && (
+            <button className="close-button" onClick={handleRemove}>
+              <GrFormClose />
+            </button>
+          )}
+        </div>
       </div>
       <div className="character-details">
         <p className="character-height">Height: {character.height} cm</p>
