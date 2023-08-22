@@ -1,4 +1,3 @@
-Overview
 This is a simple React application that displays Star Wars characters' profile cards using data from the SWAPI API. The profile cards will include the character's Name, Height, and Film Names. 
 This README will guide you through the installation, setup, and usage of the app.
 
